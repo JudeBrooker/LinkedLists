@@ -28,6 +28,10 @@ public class Main {
         RemoveStart();
 
         Print();
+
+        RemoveEnd();
+
+        Print();
     }
 
     public static void Print() {
@@ -70,6 +74,24 @@ public class Main {
             System.out.println("List is empty");
         } else {
             head = head.nextNode;
+        }
+    }
+
+    public static void RemoveEnd() {
+        if (head == null) {
+            System.out.println("List is empty");
+        } else {
+            Node currentNode = head;
+            Node previousNode = null;
+            while (currentNode.nextNode != null) {
+                previousNode = currentNode;
+                currentNode = currentNode.nextNode;
+            }
+            if (previousNode == null) {
+                head = null;
+            } else {
+                previousNode.nextNode = null;
+            }
         }
     }
 }
