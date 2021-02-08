@@ -1,5 +1,6 @@
 public class Main {
     public static Node head = null;
+
     public static void main(String[] args) {
         Node node0 = new Node("Finn Leonard");
         Node node1 = new Node("Billy Lardner");
@@ -30,6 +31,10 @@ public class Main {
         Print();
 
         RemoveEnd();
+
+        Print();
+
+        AddAt("Jude Brooker", 2);
 
         Print();
     }
@@ -67,6 +72,25 @@ public class Main {
             newNode.nextNode = head;
         }
         head = newNode;
+    }
+
+    public static void AddAt(String value, int position) {
+        Node newNode = new Node(value);
+        int counter = 0;
+
+        if (position == 0) {
+            AddStart(value);
+        } else {
+            Node currentNode = head;
+            Node previousNode = null;
+            while (counter != position) {
+                counter++;
+                previousNode = currentNode;
+                currentNode = currentNode.nextNode;
+            }
+            newNode.nextNode = previousNode.nextNode;
+            previousNode.nextNode = newNode;
+        }
     }
 
     public static void RemoveStart() {
