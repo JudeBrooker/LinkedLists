@@ -37,6 +37,10 @@ public class Main {
         AddAt("Jude Brooker", 2);
 
         Print();
+
+        RemoveValue("Jude Brooker");
+
+        Print();
     }
 
     public static void Print() {
@@ -116,6 +120,20 @@ public class Main {
             } else {
                 previousNode.nextNode = null;
             }
+        }
+    }
+
+    public static void RemoveValue(String value) {
+        if (head == null) {
+            System.out.println("List is empty");
+        } else {
+            Node currentNode = head;
+            Node previousNode = null;
+            while (!currentNode.studentName.equals(value)) {
+                previousNode = currentNode;
+                currentNode = currentNode.nextNode;
+            }
+            previousNode.nextNode = currentNode.nextNode;
         }
     }
 }
